@@ -7,8 +7,10 @@
 #include "sorting/quicksort.h"
 #include "sorting/selectionsort.h"
 #include "factorial/factorial.h"
+#include "factorial/memoizationfactorials.h"
 
-#define ARRAYSIZE 1000
+#define ARRAY_SIZE 1000
+#define MAX_FACTORIAL 20 // Max number 20
 
 /*
  *  References
@@ -43,30 +45,65 @@ int main()
            "\n- Quick Sort"
            "\n- Counting Sort\n");
 
-    int array[ARRAYSIZE];
+    int array[ARRAY_SIZE];
 
     printf("\nPerforming Bubble Sort algorithm\n");
-    bubbleSort(array, ARRAYSIZE);
-    printArray(array, ARRAYSIZE);
-    fillArrayWithRandomNumbers(array, ARRAYSIZE);
+    bubbleSort(array, ARRAY_SIZE);
+    printArray(array, ARRAY_SIZE);
+    fillArrayWithRandomNumbers(array, ARRAY_SIZE);
     printf("\n");
 
     printf("\nPerforming Radix Sort algorithm\n");
-    radixSort(array, ARRAYSIZE);
-    printArray(array, ARRAYSIZE);
-    fillArrayWithRandomNumbers(array, ARRAYSIZE);
+    radixSort(array, ARRAY_SIZE);
+    printArray(array, ARRAY_SIZE);
+    fillArrayWithRandomNumbers(array, ARRAY_SIZE);
     printf("\n");
 
     printf("\nPerforming Quick Sort algorithm\n");
-    quickSort(array, 0, ARRAYSIZE);
-    printArray(array, ARRAYSIZE);
-    fillArrayWithRandomNumbers(array, ARRAYSIZE);
+    quickSort(array, 0, ARRAY_SIZE);
+    printArray(array, ARRAY_SIZE);
+    fillArrayWithRandomNumbers(array, ARRAY_SIZE);
     printf("\n");
 
     printf("\nPerforming Selection Sort algorithm\n");
-    selectionSort(array, ARRAYSIZE);
-    printArray(array, ARRAYSIZE);
+    selectionSort(array, ARRAY_SIZE);
+    printArray(array, ARRAY_SIZE);
     printf("\n");
+
+
+    // Standard recursive factorial algorithm.
+    factorial(ARRAY_SIZE);
+
+
+    // Memoization of factorial algorithm.
+    factorials facs1;
+
+    bool success = factorials_calculate(&facs1, MAX_FACTORIAL);
+
+    if (success)
+    {
+        factorials_output(&facs1);
+        factorials_free(&facs1);
+    }
+
+    // Allocate and get: calculate and store values as requested.
+    factorials facs2;
+
+    success = factorials_allocate(&facs2, 9);
+
+    if (success)
+    {
+        factorials_output(&facs2);
+
+        factorials_get(&facs2, 3);
+        factorials_get(&facs2, 5);
+        factorials_get(&facs2, 7);
+
+        factorials_output(&facs2);
+
+        factorials_free(&facs2);
+    }
+
 
     return 0;
 }

@@ -9,20 +9,20 @@
 // --------------------------------------------------------
 typedef struct factorials
 {
-    int max;
-    int *calculated;
+    long long max;
+    long long *calculated;
 } factorials;
 
 
 // --------------------------------------------------------
 // FUNCTION PROTOTYPES
 // --------------------------------------------------------
-bool factorials_calculate(factorials *facs, int max);
+bool factorials_calculate(factorials *facs, long long max);
 
-bool factorials_allocate(factorials *facs, int max);
+bool factorials_allocate(factorials *facs, long long max);
 
 void factorials_output(factorials *facs);
 
-int factorials_get(factorials *facs, int n);
+long long factorials_get(factorials *facs, long long n);
 
 void factorials_free(factorials *facs);
