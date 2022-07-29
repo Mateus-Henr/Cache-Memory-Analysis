@@ -30,16 +30,16 @@ int getMax(const int arr[], int size)
  *  @param     size        array's size.
  *  @param     place       place where the array is being modified.
  */
-void countingSortRadix(int arr[], int size, int place)
+void countingSortRadix(int array[], int size, int place)
 {
     int output[size + 1];
-    int max = (arr[0] / place) % 10;
+    int max = (array[0] / place) % 10;
 
     for (int i = 1; i < size; i++)
     {
-        if (((arr[i] / place) % 10) > max)
+        if (((array[i] / place) % 10) > max)
         {
-            max = arr[i];
+            max = array[i];
         }
     }
 
@@ -53,7 +53,7 @@ void countingSortRadix(int arr[], int size, int place)
     // Calculate count of elements.
     for (int i = 0; i < size; i++)
     {
-        count[(arr[i] / place) % 10]++;
+        count[(array[i] / place) % 10]++;
     }
 
     // Calculate cumulative count.
@@ -65,13 +65,13 @@ void countingSortRadix(int arr[], int size, int place)
     // Place the elements in sorted order.
     for (int i = size - 1; i >= 0; i--)
     {
-        output[count[(arr[i] / place) % 10] - 1] = arr[i];
-        count[(arr[i] / place) % 10]--;
+        output[count[(array[i] / place) % 10] - 1] = array[i];
+        count[(array[i] / place) % 10]--;
     }
 
     for (int i = 0; i < size; i++)
     {
-        arr[i] = output[i];
+        array[i] = output[i];
     }
 }
 
@@ -79,17 +79,17 @@ void countingSortRadix(int arr[], int size, int place)
 /*
  *  Sorts an array using the Radix Sort algorithm, and by internal sorting it uses a Counting Sort algorithm.
  *
- *  @param     arr       pointer to the array to be sorted.
+ *  @param     array       pointer to the array to be sorted.
  *  @param     size      array's size.
  */
-void radixsort(int arr[], int size)
+void radixSort(int array[], int size)
 {
     // Get maximum element.
-    int max = getMax(arr, size);
+    int max = getMax(array, size);
 
     // Apply counting sort to sort elements based on place value.
     for (int place = 1; max / place > 0; place *= 10)
     {
-        countingSortRadix(arr, size, place);
+        countingSortRadix(array, size, place);
     }
 }

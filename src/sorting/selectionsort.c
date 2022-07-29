@@ -5,7 +5,7 @@
  *  Swaps two elements in an array.
  *
  *  @param     a     pointer to element to swap.
- *  @param     b     pointer to element to swap.
+ *  @param     b     pointer to element to swapQuickSort.
  */
 void swap(int *a, int *b)
 {

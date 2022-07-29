@@ -5,9 +5,10 @@
 #include "sorting/bubblesort.h"
 #include "sorting/radixsort.h"
 #include "sorting/quicksort.h"
+#include "sorting/selectionsort.h"
 #include "factorial/factorial.h"
 
-#define ARRAYSIZE 100
+#define ARRAYSIZE 1000
 
 /*
  *  References
@@ -19,6 +20,7 @@
  *  • Quick Sort - https://www.programiz.com/dsa/quick-sort
  *  • Selection Sort - https://www.programiz.com/dsa/selection-sort
  *  • Factorial - https://www.programiz.com/c-programming/examples/factorial-recursion
+ *  • Memoized Factorial - https://www.codedrome.com/memoization-of-factorials-in-c/
  */
 
 
@@ -50,7 +52,7 @@ int main()
     printf("\n");
 
     printf("\nPerforming Radix Sort algorithm\n");
-    radixsort(array, ARRAYSIZE);
+    radixSort(array, ARRAYSIZE);
     printArray(array, ARRAYSIZE);
     fillArrayWithRandomNumbers(array, ARRAYSIZE);
     printf("\n");
@@ -61,10 +63,9 @@ int main()
     fillArrayWithRandomNumbers(array, ARRAYSIZE);
     printf("\n");
 
-    printf("\nPerforming Factorial algorithm\n");
-    factorial(array, ARRAYSIZE);
+    printf("\nPerforming Selection Sort algorithm\n");
+    selectionSort(array, ARRAYSIZE);
     printArray(array, ARRAYSIZE);
-    fillArrayWithRandomNumbers(array, ARRAYSIZE);
     printf("\n");
 
     return 0;
@@ -81,7 +82,7 @@ void fillArrayWithRandomNumbers(int array[], int size)
 {
     srand(time(NULL));
 
-    for (int i = 0; i < ARRAYSIZE; i++)
+    for (int i = 0; i < size; i++)
     {
         array[i] = rand();
     }
