@@ -4,8 +4,8 @@
 /*
  *  Sorts an array using the Bubble Sort algorithm.
  *
- *  @param     arr       pointer to the array to be sorted.
- *  @param     size      array's size.
+ *  @param     array       pointer to the array to be sorted.
+ *  @param     size        array's size.
  */
 void bubbleSort(int array[], int size)
 {

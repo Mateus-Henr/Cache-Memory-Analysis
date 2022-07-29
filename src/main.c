@@ -5,7 +5,7 @@
 #include "sorting/bubblesort.h"
 #include "sorting/radixsort.h"
 #include "sorting/quicksort.h"
-#include "sorting/countingsort.h"
+#include "factorial/factorial.h"
 
 #define ARRAYSIZE 100
 
@@ -17,7 +17,8 @@
  *  • Bubble Sort - https://www.geeksforgeeks.org/bubble-sort/
  *  • Radix Sort - https://www.programiz.com/dsa/radix-sort
  *  • Quick Sort - https://www.programiz.com/dsa/quick-sort
- *  • Counting Sort - https://www.programiz.com/dsa/counting-sort
+ *  • Selection Sort - https://www.programiz.com/dsa/selection-sort
+ *  • Factorial - https://www.programiz.com/c-programming/examples/factorial-recursion
  */
 
 
@@ -60,8 +61,8 @@ int main()
     fillArrayWithRandomNumbers(array, ARRAYSIZE);
     printf("\n");
 
-    printf("\nPerforming Counting Sort algorithm\n");
-    countingSort(array, ARRAYSIZE);
+    printf("\nPerforming Factorial algorithm\n");
+    factorial(array, ARRAYSIZE);
     printArray(array, ARRAYSIZE);
     fillArrayWithRandomNumbers(array, ARRAYSIZE);
     printf("\n");

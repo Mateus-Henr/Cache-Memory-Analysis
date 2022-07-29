@@ -26,9 +26,9 @@ int getMax(const int arr[], int size)
 /*
  *  Sorts an array using the Counting Sort algorithm, notice that this method is used by the "radixSort" method.
  *
- *  @param     arr       pointer to the array to be sorted.
- *  @param     size      array's size.
- *  @param     place     place where the array is being modified.
+ *  @param     array       pointer to the array to be sorted.
+ *  @param     size        array's size.
+ *  @param     place       place where the array is being modified.
  */
 void countingSortRadix(int arr[], int size, int place)
 {
