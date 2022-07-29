@@ -8,9 +8,9 @@
 // --------------------------------------------------------
 // FUNCTION allocateFactorials
 // --------------------------------------------------------
-bool allocateFactorials(Factorials *factorials, long long int max)
+bool allocateFactorials(Factorials *factorials, long max)
 {
-    factorials->calculated = calloc(max, sizeof(long long int));
+    factorials->calculated = calloc(max, sizeof(unsigned long long int));
 
     if (!factorials->calculated)
     {
@@ -26,9 +26,9 @@ bool allocateFactorials(Factorials *factorials, long long int max)
 // --------------------------------------------------------
 // FUNCTION getFactorials
 // --------------------------------------------------------
-long long int getFactorials(Factorials *factorials, long long int n)
+unsigned long long int getFactorials(Factorials *factorials, unsigned long long int n)
 {
-    long long int fac = factorials->calculated[n];
+    unsigned long long int fac = factorials->calculated[n];
 
     if (fac == 0)
     {
@@ -36,7 +36,7 @@ long long int getFactorials(Factorials *factorials, long long int n)
         {
             fac = n;
 
-            for (long long int i = n - 1; i > 1; i--)
+            for (unsigned long long int i = n - 1; i > 1; i--)
             {
                 fac *= i;
             }

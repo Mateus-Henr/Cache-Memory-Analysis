@@ -4,18 +4,18 @@
 /*
  *  Gets the largest element in an array.
  *
- *  @param     arr       pointer to the array to be sorted.
+ *  @param     array     pointer to the array to be sorted.
  *  @param     size      array's size.
  */
-int getMax(const int arr[], int size)
+int getMax(const int array[], int size)
 {
-    int max = arr[0];
+    int max = array[0];
 
     for (int i = 1; i < size; i++)
     {
-        if (arr[i] > max)
+        if (array[i] > max)
         {
-            max = arr[i];
+            max = array[i];
         }
     }
 
@@ -79,7 +79,7 @@ void countingSortRadix(int array[], int size, int place)
 /*
  *  Sorts an array using the Radix Sort algorithm, and by internal sorting it uses a Counting Sort algorithm.
  *
- *  @param     array       pointer to the array to be sorted.
+ *  @param     array     pointer to the array to be sorted.
  *  @param     size      array's size.
  */
 void radixSort(int array[], int size)

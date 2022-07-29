@@ -9,8 +9,8 @@
 // --------------------------------------------------------
 typedef struct Factorials
 {
-    long long int max;
-    long long int *calculated;
+    long max;
+    unsigned long long int *calculated;
 } Factorials;
 
 
@@ -18,8 +18,8 @@ typedef struct Factorials
 // FUNCTION PROTOTYPES
 // --------------------------------------------------------
 
-bool allocateFactorials(Factorials *factorials, long long int max);
+bool allocateFactorials(Factorials *factorials, long max);
 
-long long int getFactorials(Factorials *factorials, long long int n);
+unsigned long long int getFactorials(Factorials *factorials, unsigned long long int n);
 
 void freeFactorials(Factorials *factorials);

@@ -40,6 +40,8 @@ void fillArrayWithRandomNumbers(int array[], int size);
  */
 int main()
 {
+    /// ------------------------------------------- SORTING ALGORITHMS PART --------------------------------------------
+
     printf("Algorithms being used:"
            "\n- Bubble Sort"
            "\n- Radix Sort"
@@ -71,6 +73,11 @@ int main()
     printArray(array, ARRAY_SIZE);
     printf("\n");
 
+    /// ----------------------------------------- END SORTING ALGORITHMS PART ------------------------------------------
+
+
+
+    /// ------------------------------------------------ FACTORIAL PART ------------------------------------------------
 
     printf("\n\nFACTORIAL\n\n");
 
@@ -78,17 +85,18 @@ int main()
 
     int numberArray[QUANTITY_NUMBERS];
 
-    for (int i = 0; i < QUANTITY_NUMBERS; ++i)
+    for (int i = 0; i < QUANTITY_NUMBERS; i++)
     {
-        numberArray[i] = rand() % MAX_FACTORIAL;
+        numberArray[i] = rand() % MAX_FACTORIAL + 1;
     }
+
 
     printf("Standard Recursive Factorial Algorithm\n");
 
     // Standard recursive factorial algorithm.
-    for (int i = 0; i < QUANTITY_NUMBERS; ++i)
+    for (int i = 0; i < QUANTITY_NUMBERS; i++)
     {
-        printf("%lld ", factorial(numberArray[i]));
+        printf("%llu ", factorial(numberArray[i]));
     }
 
 
@@ -102,12 +110,15 @@ int main()
 
     printf("\n\nMemorized Factorial Algorithm\n");
 
-    for (int i = 0; i < QUANTITY_NUMBERS; ++i)
+    for (int i = 0; i < QUANTITY_NUMBERS; i++)
     {
-        printf("%lld ", getFactorials(&factorials, numberArray[i]));
+        printf("%llu ", getFactorials(&factorials, numberArray[i]));
     }
 
     freeFactorials(&factorials);
+
+    /// ---------------------------------------------- END FACTORIAL PART ----------------------------------------------
+
 
     return 0;
 }
