@@ -7,7 +7,7 @@
  *  @param     n      number to get the factorial of.
  *  @return           factorial of the number.
  */
-long int factorial(int n)
+long long int factorial(int n)
 {
     return (n >= 1) ? n * factorial(n - 1) : 1;
 }

@@ -1,78 +1,34 @@
-#include<stdlib.h>
-#include<stdbool.h>
-#include<stdio.h>
-#include<string.h>
-#include<math.h>
+#include <stdlib.h>
+#include <stdbool.h>
+#include <stdio.h>
 
-#include"memoizationfactorials.h"
+#include "memoizationfactorials.h"
 
 
 // --------------------------------------------------------
-// FUNCTION factorials_calculate
+// FUNCTION allocateFactorials
 // --------------------------------------------------------
-bool factorials_calculate(factorials *facs, long long max)
+bool allocateFactorials(Factorials *factorials, long long int max)
 {
-    facs->calculated = malloc(max * sizeof(long long));
+    factorials->calculated = calloc(max, sizeof(long long int));
 
-    if (facs->calculated != NULL)
+    if (!factorials->calculated)
     {
-        facs->max = max;
-
-        long long prev = 1;
-
-        facs->calculated[0] = 1;
-
-        for (long long i = 1; i <= max; i++)
-        {
-            facs->calculated[i] = i * prev;
-            prev = facs->calculated[i];
-        }
-
-        return true;
+        return false;
     }
 
-    return false;
+    factorials->max = max;
+
+    return true;
 }
 
 
 // --------------------------------------------------------
-// FUNCTION factorials_output
+// FUNCTION getFactorials
 // --------------------------------------------------------
-void factorials_output(factorials *facs)
+long long int getFactorials(Factorials *factorials, long long int n)
 {
-    puts("  n          n!\n---------------");
-
-    for (long long i = 0; i <= facs->max; i++)
-    {
-        printf("%3lld%22lld\n", i, facs->calculated[i]);
-    }
-}
-
-
-// --------------------------------------------------------
-// FUNCTION factorials_allocate
-// --------------------------------------------------------
-bool factorials_allocate(factorials *facs, long long max)
-{
-    facs->calculated = calloc(max, sizeof(long long));
-
-    if (facs->calculated != NULL)
-    {
-        facs->max = max;
-
-        return true;
-    }
-
-    return false;
-}
-
-
-// --------------------------------------------------------
-// FUNCTION factorials_get
-// --------------------------------------------------------
-long long factorials_get(factorials *facs, long long n)
-{
-    long long fac = facs->calculated[n];
+    long long int fac = factorials->calculated[n];
 
     if (fac == 0)
     {
@@ -80,7 +36,7 @@ long long factorials_get(factorials *facs, long long n)
         {
             fac = n;
 
-            for (long long i = n - 1; i > 1; i--)
+            for (long long int i = n - 1; i > 1; i--)
             {
                 fac *= i;
             }
@@ -90,7 +46,7 @@ long long factorials_get(factorials *facs, long long n)
             fac = 1;
         }
 
-        facs->calculated[n] = fac;
+        factorials->calculated[n] = fac;
     }
 
     return fac;
@@ -98,9 +54,9 @@ long long factorials_get(factorials *facs, long long n)
 
 
 // --------------------------------------------------------
-// FUNCTION factorials_free
+// FUNCTION freeFactorials
 // --------------------------------------------------------
-void factorials_free(factorials *facs)
+void freeFactorials(Factorials *factorials)
 {
-    free(facs->calculated);
+    free(factorials->calculated);
 }

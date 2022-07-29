@@ -1,28 +1,25 @@
-#include<stdlib.h>
-#include<stdbool.h>
-#include<stdio.h>
-#include<math.h>
+#include <stdlib.h>
+#include <stdbool.h>
+#include <stdio.h>
+#include <math.h>
 
-// ------------------
+
 // --------------------------------------------------------
-// STRUCT factorials
+// STRUCT Factorials
 // --------------------------------------------------------
-typedef struct factorials
+typedef struct Factorials
 {
-    long long max;
-    long long *calculated;
-} factorials;
+    long long int max;
+    long long int *calculated;
+} Factorials;
 
 
 // --------------------------------------------------------
 // FUNCTION PROTOTYPES
 // --------------------------------------------------------
-bool factorials_calculate(factorials *facs, long long max);
 
-bool factorials_allocate(factorials *facs, long long max);
+bool allocateFactorials(Factorials *factorials, long long int max);
 
-void factorials_output(factorials *facs);
+long long int getFactorials(Factorials *factorials, long long int n);
 
-long long factorials_get(factorials *facs, long long n);
-
-void factorials_free(factorials *facs);
+void freeFactorials(Factorials *factorials);

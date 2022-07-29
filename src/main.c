@@ -10,7 +10,8 @@
 #include "factorial/memoizationfactorials.h"
 
 #define ARRAY_SIZE 1000
-#define MAX_FACTORIAL 20 // Max number 20
+#define QUANTITY_NUMBERS 1000
+#define MAX_FACTORIAL 20
 
 /*
  *  References
@@ -71,39 +72,42 @@ int main()
     printf("\n");
 
 
-    // Standard recursive factorial algorithm.
-    factorial(ARRAY_SIZE);
+    printf("\n\nFACTORIAL\n\n");
 
+    srand(time(NULL));
 
-    // Memoization of factorial algorithm.
-    factorials facs1;
+    int numberArray[QUANTITY_NUMBERS];
 
-    bool success = factorials_calculate(&facs1, MAX_FACTORIAL);
-
-    if (success)
+    for (int i = 0; i < QUANTITY_NUMBERS; ++i)
     {
-        factorials_output(&facs1);
-        factorials_free(&facs1);
+        numberArray[i] = rand() % MAX_FACTORIAL;
     }
+
+    printf("Standard Recursive Factorial Algorithm\n");
+
+    // Standard recursive factorial algorithm.
+    for (int i = 0; i < QUANTITY_NUMBERS; ++i)
+    {
+        printf("%lld ", factorial(numberArray[i]));
+    }
+
 
     // Allocate and get: calculate and store values as requested.
-    factorials facs2;
+    Factorials factorials;
 
-    success = factorials_allocate(&facs2, 9);
-
-    if (success)
+    if (!allocateFactorials(&factorials, MAX_FACTORIAL))
     {
-        factorials_output(&facs2);
-
-        factorials_get(&facs2, 3);
-        factorials_get(&facs2, 5);
-        factorials_get(&facs2, 7);
-
-        factorials_output(&facs2);
-
-        factorials_free(&facs2);
+        return -1;
     }
 
+    printf("\n\nMemorized Factorial Algorithm\n");
+
+    for (int i = 0; i < QUANTITY_NUMBERS; ++i)
+    {
+        printf("%lld ", getFactorials(&factorials, numberArray[i]));
+    }
+
+    freeFactorials(&factorials);
 
     return 0;
 }
