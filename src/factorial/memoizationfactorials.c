@@ -1,32 +1,32 @@
 #include <stdlib.h>
 #include <stdbool.h>
-#include <stdio.h>
 
 #include "memoizationfactorials.h"
 
 
-// --------------------------------------------------------
-// FUNCTION allocateFactorials
-// --------------------------------------------------------
-bool allocateFactorials(Factorials *factorials, long max)
+/*
+ *  Allocates Factorials struct on memory.
+ *
+ *  @param     factorials     pointer to Factorials struct.
+ *  @param     max            array's max size.
+ *  @return                   whether the operation was successful or not.
+ */
+bool allocateFactorials(Factorials *factorials, int max)
 {
     factorials->calculated = calloc(max, sizeof(unsigned long long int));
 
-    if (!factorials->calculated)
-    {
-        return false;
-    }
-
-    factorials->max = max;
-
-    return true;
+    return factorials->calculated;
 }
 
 
-// --------------------------------------------------------
-// FUNCTION getFactorials
-// --------------------------------------------------------
-unsigned long long int getFactorials(Factorials *factorials, unsigned long long int n)
+/*
+ *  Gets the factorial of a number if stored, otherwise it calculates the factorial of the number and stores it.
+ *
+ *  @param     factorials     pointer to Factorials struct.
+ *  @param     max            array's max size.
+ *  @return                   factorial of the number.
+ */
+unsigned long long int getFactorials(Factorials *factorials, int n)
 {
     unsigned long long int fac = factorials->calculated[n];
 
@@ -53,9 +53,11 @@ unsigned long long int getFactorials(Factorials *factorials, unsigned long long 
 }
 
 
-// --------------------------------------------------------
-// FUNCTION freeFactorials
-// --------------------------------------------------------
+/*
+ *  Frees Factorial struct from memory.
+ *
+ *  @param     factorials     pointer to Factorials struct.
+ */
 void freeFactorials(Factorials *factorials)
 {
     free(factorials->calculated);

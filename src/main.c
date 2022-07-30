@@ -18,16 +18,17 @@
  *
  *  OBS: Some references have been modified for the purposes of the project, or to follow a standard design.
  *
- *  • Bubble Sort - https://www.geeksforgeeks.org/bubble-sort/
+ *  • Bubble Sort - https://www.geeksforgeeks.org/bubble-sort
  *  • Radix Sort - https://www.programiz.com/dsa/radix-sort
  *  • Quick Sort - https://www.programiz.com/dsa/quick-sort
  *  • Selection Sort - https://www.programiz.com/dsa/selection-sort
  *  • Factorial - https://www.programiz.com/c-programming/examples/factorial-recursion
- *  • Memoized Factorial - https://www.codedrome.com/memoization-of-factorials-in-c/
+ *  • Memoized Factorial - https://www.codedrome.com/memoization-of-factorials-in-c
  */
 
 
-// Function prototype
+// Function prototypes
+
 void printArray(int arr[], int size);
 
 void fillArrayWithRandomNumbers(int array[], int size);
@@ -127,8 +128,8 @@ int main()
 /*
  *  Fills array with random numbers.
  *
- *  @param     arr      pointer to the array to be sorted.
- *  @param     size     array's size.
+ *  @param     array     pointer to the array to be sorted.
+ *  @param     size      array's size.
  */
 void fillArrayWithRandomNumbers(int array[], int size)
 {
@@ -144,8 +145,8 @@ void fillArrayWithRandomNumbers(int array[], int size)
 /*
  *  Prints out array.
  *
- *  @param     arr      pointer to the array to be sorted.
- *  @param     size     array's size.
+ *  @param     array     pointer to the array to be sorted.
+ *  @param     size      array's size.
  */
 void printArray(int array[], int size)
 {
